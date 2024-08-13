@@ -13,8 +13,7 @@ placeholder = Search city...
 
 <span class="m-icon">arrow_back</span>
 
-London
-GB
+State of London, GB
 
 Current Location
 
