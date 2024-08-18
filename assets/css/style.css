@@ -1038,5 +1038,15 @@ article.container::before {
     
   }
 
+/* GET BACK TO THIS  */
+}
 
+
+@media (min-width: 1600px) {
+  .highlight-list {
+    grid-template-columns: repeat(4, 1fr);
+    
+  }
+
+/* GET BACK TO THIS  */
 }
