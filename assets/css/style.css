@@ -1016,7 +1016,7 @@ article.container::before {
 
   .forecast-card .title-2 { --title-2: 2.2rem;}
 
-  .highlight-card:nth-child(-n+2) { height: 200px; }
+  .highlight-card:nth-child(-n+2) { height: 200px;  }
 
   .highlight-card:nth-child(n+3) { height: 150px; }
 
@@ -1041,12 +1041,3 @@ article.container::before {
 /* GET BACK TO THIS  */
 }
 
-
-@media (min-width: 1600px) {
-  .highlight-list {
-    grid-template-columns: repeat(4, 1fr);
-    
-  }
-
-/* GET BACK TO THIS  */
-}
