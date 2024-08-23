@@ -2,6 +2,7 @@
 
 const api_key = "b28121b65cabb418ad0b19bb0bf37bfe"
 
+
 /**
  * Fetch data from server
  * @param {string} URL API url

@@ -28,10 +28,11 @@ const routes = new Map([
 const checkHash = function () {
     const requestURL = window.location.hash.slice(1);
 
-    const [route, query] = requestURL.includes ? requestURL.split("?") : [requestURL];
+    const [route, query] = requestURL.includes('?') ? requestURL.split("?") : [requestURL];
 
-    route.get(route) ? routes.get(route)(query) : error404();
+    routes.get(route) ? routes.get(route)(query) : error404();
 }
+
 
 window.addEventListener("hashchange", checkHash);
 
