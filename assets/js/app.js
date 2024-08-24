@@ -97,9 +97,9 @@ const errorContent = document.querySelector("[data-error-content]");
  */
 export const updateWeather = function (lat, lon) {
 
-    // loading.styleMap.display = "grid";
-    // container.styleMap.overflowY = "hidden";
-    // container.classList.remove("fade-in");
+    loading.styleMap.display = "grid";
+    container.styleMap.overflowY = "hidden";
+    container.classList.remove("fade-in");
     errorContent.style.display = "none";
 
     const currentWeatherSection = document.querySelector("[data-current-weather]");
@@ -393,25 +393,7 @@ export const updateWeather = function (lat, lon) {
                 <h2 class="title-2" id="forecast-label">5 Days Forecast</h2>
 
                 <div class="card card-lg forecast-card">
-                    <ul>
-                        
-                        <li class="card-item">
-
-                            <div class="icon-wrapper">
-                                <img src="./assets/images/weather_icons/01n.png" width="36" height="36" alt="Overcast Clouds" class="weather-icon">
-
-                                <span class="span">
-                                    <p class="title-2">25</p>
-                                </span>
-                            </div>
-
-                            <p class="label-1">17 Feb</p>  
-
-                            <p class="label-1">Friday</p>
-
-                        </li>
-                        
-                    </ul>
+                    <ul data-forecast-list></ul>
                 </div>
             `;
 
@@ -422,8 +404,32 @@ export const updateWeather = function (lat, lon) {
                     weather,
                     dt_txt
                 } = forecastList[i];
+                const [{ icon, description }] = weather
+                const date = new Date(dt_txt);
+
+                const li = document.createElement("li");
+                li.classList.add("card-item");
+
+                li.innerHTML = `
+                    <div class="icon-wrapper">
+                        <img src="./assets/images/weather_icons/${icon}.png" width="36" height="36" alt="${description}" class="weather-icon title="${description}"
+
+                        <span class="span">
+                            <p class="title-2">${parseInt(temp_max)}&deg;</p>
+                        </span>
+                    </div>
+
+                    <p class="label-1">${date.getDate()} ${module.monthNames[date.getUTCMonth()]}</p>  
+
+                    <p class="label-1">${module.weekDayNames[date.getUTCDay()]}</p>
+             `;
+             forecastSection.querySelector("[data-forecast-list]").appendChild(li);
 
             }
+           
+            loading.styleMap.display = "none";
+            container.styleMap.overflowY = "overlay";
+            container.classList.add("fade-in");
             
         });
         
@@ -431,5 +437,5 @@ export const updateWeather = function (lat, lon) {
 
 }
 
-export const error404 = function () { }
+export const error404 =  () => errorContent.style.display = "flex";
 
