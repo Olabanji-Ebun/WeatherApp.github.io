@@ -43,10 +43,11 @@ A sleek and responsive weather app built with **vanilla JavaScript**, using the 
 ## 🌐 Browser Support
 Works seamlessly on all modern browsers:
 
-- <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/chrome/chrome-original.svg" width="16" height="16" alt="Chrome"/> **Chrome**  
-- <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firefox/firefox-original.svg" width="16" height="16" alt="Firefox"/> **Firefox**  
-- <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/edge/edge-original.svg" width="16" height="16" alt="Edge"/> **Edge**  
-- <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/safari/safari-original.svg" width="16" height="16" alt="Safari"/> **Safari**
+
+✓ **Chrome**  
+✓ **Firefox**  
+✓ **Edge**  
+✓ **Safari** 
 
 ---
 
