@@ -17,20 +17,24 @@ const currentLocation = function () {
  * 
  * @param {string} query Searched query 
  */
-const searchedLocation = query => updateWeather(...query.split("&"));
+const searchedLocation = query => {
+    const params = new URLSearchParams(query);
+    const lat = params.get("lat");
+    const lon = params.get("lon");
+    updateWeather(lat, lon);
+};
 // updateWeather("lat=51.5073219", "lon=0.1276474")
 
 const routes = new Map([
-    ["*/current-location", currentLocation],
-    ["*/weather", searchedLocation]
+    ["/current-location", currentLocation],
+    ["/weather", searchedLocation]
 ]);
 
 const checkHash = function () {
     const requestURL = window.location.hash.slice(1);
-
-    const [route, query] = requestURL.includes ? requestURL.split("?") : [requestURL];
-
-    route.get(route) ? routes.get(route)(query) : error404();
+    const [route, query] = requestURL.includes("?") ? requestURL.split("?") : [requestURL];
+    
+    routes.get(route) ? routes.get(route)(query) : error404();
 }
 
 window.addEventListener("hashchange", checkHash);

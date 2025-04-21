@@ -97,8 +97,8 @@ const errorContent = document.querySelector("[data-error-content]");
  */
 export const updateWeather = function (lat, lon) {
 
-    loading.styleMap.display = "grid";
-    container.styleMap.overflowY = "hidden";
+    loading.style.display = "grid";
+    container.style.overflowY = "hidden";
     container.classList.remove("fade-in");
     errorContent.style.display = "none";
 
@@ -325,112 +325,92 @@ export const updateWeather = function (lat, lon) {
          * 24H FORECAST SECTION
          */
         fetchData(url.forecast(lat, lon), function (forecast) {
-          
+            console.log("Forecast data:", forecast); // Debug
             const {
                 list: forecastList,
-                city: { timezone}
+                city: { timezone }
             } = forecast;
-
+        
+            // Hourly Forecast Section
             hourlySection.innerHTML = `
                 <h2 class="title-2">Today at</h2>
-
                 <div class="slider-container">
                     <ul class="slider-list" data-temp></ul>
-
                     <ul class="slider-list" data-wind></ul>
                 </div>
             `;
-
+        
             for (const [index, data] of forecastList.entries()) {
-
                 if (index > 7) break;
-
                 const {
                     dt: dateTimeUnix,
                     main: { temp },
                     weather,
-                    wind: { deg: windDirection, speed: windSpeed}
-                } = data
-                const [{ icon, description}] = weather
-
-                const tempLi = document.createElement("Li")
+                    wind: { deg: windDirection, speed: windSpeed }
+                } = data;
+                const [{ icon, description }] = weather;
+        
+                const tempLi = document.createElement("li");
                 tempLi.classList.add("slider-item");
-
+        
                 tempLi.innerHTML = `
                     <div class="card card-sm slider-card">
-
                         <p class="body-3">${module.getHours(dateTimeUnix, timezone)}</p>
-
                         <img src="./assets/images/weather_icons/${icon}.png" width="48" height="48" loading="lazy" alt="${description}" class="weather-icon" title="${description}">
-
-                        <p class="body-3">${parseInt(temp)}&deg;</p>
-
+                        <p class="body-3">${parseInt(temp)}°</p>
                     </div>
                 `;
-                hourlySection.querySelector(("data-temp")).appendChild(tempLi);
-
-                const windLi = document.createElement("Li");
+                hourlySection.querySelector("[data-temp]").appendChild(tempLi);
+        
+                const windLi = document.createElement("li");
                 windLi.classList.add("slider-item");
-
+        
                 windLi.innerHTML = `
                     <div class="card card-sm slider-card">
-
                         <p class="body-3">${module.getHours(dateTimeUnix, timezone)}</p>
-
-                        <img src="./assets/images/weather_icons/direction.png" width="48" height="48" loading="lazy" alt="" class="weather-icon"  style="transform: rotate(${windDirection -180}deg)">
-
+                        <img src="./assets/images/weather_icons/direction.png" width="48" height="48" loading="lazy" alt="" class="weather-icon" style="transform: rotate(${windDirection - 180}deg)">
                         <p class="body-3">${parseInt(module.mps_to_kmh(windSpeed))} km/h</p>
-
                     </div>
                 `;
                 hourlySection.querySelector("[data-wind]").appendChild(windLi);
             }
-
-            /**
-             * 5 DAY FORECAST SECTION
-             */
+        
+            // 5 Day Forecast Section
             forecastSection.innerHTML = `
                 <h2 class="title-2" id="forecast-label">5 Days Forecast</h2>
-
                 <div class="card card-lg forecast-card">
                     <ul data-forecast-list></ul>
                 </div>
             `;
-
-            for (let i = 7, len = forecastList.length; i < len; i+=8) {
-
+        
+            for (let i = 7, len = forecastList.length; i < len; i += 8) {
                 const {
-                    main: {temp_max},
+                    main: { temp_max },
                     weather,
                     dt_txt
                 } = forecastList[i];
-                const [{ icon, description }] = weather
+                const [{ icon, description }] = weather;
                 const date = new Date(dt_txt);
-
+        
                 const li = document.createElement("li");
                 li.classList.add("card-item");
-
+        
                 li.innerHTML = `
                     <div class="icon-wrapper">
-                        <img src="./assets/images/weather_icons/${icon}.png" width="36" height="36" alt="${description}" class="weather-icon title="${description}"
-
+                        <img src="./assets/images/weather_icons/${icon}.png" width="36" height="36" alt="${description}" class="weather-icon" title="${description}">
                         <span class="span">
-                            <p class="title-2">${parseInt(temp_max)}&deg;</p>
+                            <p class="title-2">${parseInt(temp_max)}°</p>
                         </span>
                     </div>
-
-                    <p class="label-1">${date.getDate()} ${module.monthNames[date.getUTCMonth()]}</p>  
-
+                    <p class="label-1">${date.getDate()} ${module.monthNames[date.getUTCMonth()]}</p>
                     <p class="label-1">${module.weekDayNames[date.getUTCDay()]}</p>
-             `;
-             forecastSection.querySelector("[data-forecast-list]").appendChild(li);
-
+                `;
+                forecastSection.querySelector("[data-forecast-list]").appendChild(li);
             }
-           
-            loading.styleMap.display = "none";
-            container.styleMap.overflowY = "overlay";
+        
+            loading.style.display = "none";
+            container.style.overflowY = "overlay";
             container.classList.add("fade-in");
-            
         });
         
     });

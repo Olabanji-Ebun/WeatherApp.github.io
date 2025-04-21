@@ -648,11 +648,10 @@ article.container::before {
 \*-----------------------------------*/
 
 .slider-container {
-  overflow-x: auto;
-  margin-inline: -16px;
+    overflow-x: auto;
+    margin-inline: -16px;
 }
-
-.slider-container::-webkit-scrollbar { display: none;}
+.slider-container::-webkit-scrollbar { display: none; }
 
 .slider-list {
   display: flex;
@@ -670,7 +669,7 @@ article.container::before {
 
 .slider-item {
   min-width: 110px;
-  flex: 1 1 100% ;
+  flex: 1 1 100%;
 }
 
 .slider-card { text-align: center;}

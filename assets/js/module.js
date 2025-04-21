@@ -60,14 +60,13 @@ export const getTime = function(timeUnix, timezone) {
  * @param {number} timezone Timezone shift from UTC in seconds
  * @returns {string} Time String. formate: "HH AM/PM"
  */
-export const getUTCHours = function(timeUnix, timezone) {
+export const getHours = function(timeUnix, timezone) {
     const date = new Date((timeUnix + timezone) * 1000);
     const hours = date.getUTCHours();
+    const minutes = date.getUTCMinutes();
     const period = hours >= 12 ? "PM" : "AM";
-
-    return `${hours % 12 || 12} ${period}`;
-}
-
+    return `${hours % 12 || 12}:${minutes.toString().padStart(2, '0')} ${period}`;
+};
 /**
  * 
  * @param {number} mps Meter per second 
