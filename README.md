@@ -1,43 +1,54 @@
-# Weatherio 🌦️
+# Weatherio 🌦️  
+A sleek and responsive weather app built with **vanilla JavaScript**, using the **OpenWeatherMap API** to provide real-time weather updates, 5-day forecasts, and hourly breakdowns.
 
-A sleek weather app built with vanilla JavaScript, using the OpenWeatherMap API to provide real-time weather updates, 5-day forecasts, and hourly data.
+---
 
-## Features ⭐
-- **City Search**: Find weather for any city worldwide 🌍.
-- **Geolocation**: Get weather for your current location 📍.
-- **Detailed Data**: Includes temperature, air quality, sunrise/sunset, and more.
-- **Responsive UI**: Dark-themed design, optimized for all devices 📱💻.
+## ✨ Features
+- 🔍 **City Search** – Find the weather in any city around the globe.  
+- 📍 **Geolocation Support** – Instantly get weather updates for your current location.  
+- 📊 **Detailed Weather Info** – Includes temperature, humidity, air quality, wind speed, sunrise/sunset times, and more.  
+- 🌓 **Responsive UI** – Clean, dark-themed interface optimized for mobile and desktop.
 
-## Tech Stack
-- Vanilla JavaScript
-- OpenWeatherMap API
-- CSS (with custom properties for theming)
+---
 
-## Installation
-1. Clone the repo:
+## 🛠️ Tech Stack
+- **Vanilla JavaScript**
+- **OpenWeatherMap API**
+- **HTML & CSS** (with custom properties for dark theme support)
+
+---
+
+## 🚀 Installation & Setup
+
+1. **Clone the repository:**
    ```bash
    git clone https://github.com/Olabanji-Ebun/WeatherApp.github.io.git
-2. Get an API key from [OpenWeatherMap API](https://openweathermap.org/api)
-3. Add your OpenWeatherMap API key to `api.js`:
+   ```
 
-```javascript
-// ⚠️ Never commit real API keys to version control!
-const api_key = "your_api_key_here";  // Replace with your actual API key
+2. **Get an API key** from [OpenWeatherMap](https://openweathermap.org/api)
 
-4.  Open `index.html` in your browser  
-   *(Use a local server like [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) for VSCode to avoid CORS issues)*
+3. **Configure your API key:**  
+   Open `api.js` and replace the placeholder with your actual API key:
+   ```javascript
+   // ⚠️ Never expose real API keys in public repos!
+   const api_key = "your_api_key_here";
+   ```
 
-## Browser Support
+4. **Run the app:**  
+   Open `index.html` in your browser.  
+   > 💡 *For best results and to avoid CORS issues, use a local server like [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) in VS Code.*
 
-Works on all modern browsers:
+---
 
-- <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/chrome/chrome-original.svg" width="16" height="16" alt="Chrome"/> Chrome
-- <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firefox/firefox-original.svg" width="16" height="16" alt="Firefox"/> Firefox
-- <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/edge/edge-original.svg" width="16" height="16" alt="Edge"/> Edge
-- <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/safari/safari-original.svg" width="16" height="16" alt="Safari"/> Safari
+## 🌐 Browser Support
+Works seamlessly on all modern browsers:
 
-5. ## License
+- <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/chrome/chrome-original.svg" width="16" height="16" alt="Chrome"/> **Chrome**  
+- <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firefox/firefox-original.svg" width="16" height="16" alt="Firefox"/> **Firefox**  
+- <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/edge/edge-original.svg" width="16" height="16" alt="Edge"/> **Edge**  
+- <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/safari/safari-original.svg" width="16" height="16" alt="Safari"/> **Safari**
+
+---
+
+## 📄 License
 © 2023 [Olabanji Ebun](https://github.com/Olabanji-Ebun). All rights reserved.
-
-
-
