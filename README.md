@@ -51,4 +51,4 @@ Works seamlessly on all modern browsers:
 ---
 
 ## 📄 License
-© 2023 [Olabanji Ebun](https://github.com/Olabanji-Ebun). All rights reserved.
+© 2023 [Olabanji-Ebun](https://github.com/Olabanji-Ebun). All rights reserved.
