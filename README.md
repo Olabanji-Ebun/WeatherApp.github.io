@@ -17,12 +17,13 @@ A sleek weather app built with vanilla JavaScript, using the OpenWeatherMap API 
 1. Clone the repo:
    ```bash
    git clone https://github.com/Olabanji-Ebun/WeatherApp.github.io.git
-2. Get an API key from [OpenWeatherMap API](https://openweathermap.org/api).
+2. Get an API key from [OpenWeatherMap API](https://openweathermap.org/api)
 3. Add your OpenWeatherMap API key to `api.js`:
 
 ```javascript
 // ⚠️ Never commit real API keys to version control!
 const api_key = "your_api_key_here";  // Replace with your actual API key
+
 4.  Open `index.html` in your browser  
    *(Use a local server like [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) for VSCode to avoid CORS issues)*
 
